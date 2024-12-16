@@ -1,6 +1,7 @@
 package com.raquel.farmacia.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,7 +46,7 @@ public class CategoriaController {
     public ResponseEntity<List<Categoria>> getByNome(@PathVariable String nome) {
         return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
     }
-
+    
     // Método 4: Criar uma nova categoria
     @PostMapping
     public ResponseEntity<Categoria> postCategoria(@RequestBody Categoria categoria) {
@@ -69,4 +70,3 @@ public class CategoriaController {
         }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }
-
